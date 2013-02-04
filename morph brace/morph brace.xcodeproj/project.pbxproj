@@ -25,6 +25,9 @@
 		5386FA3916BA0B51002C63AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5386FA3716BA0B51002C63AB /* InfoPlist.strings */; };
 		5386FA3C16BA0B51002C63AB /* morph_braceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5386FA3B16BA0B51002C63AB /* morph_braceTests.m */; };
 		53A95FA616BA328D009A35E1 /* picture01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53A95FA516BA328D009A35E1 /* picture01.jpg */; };
+		53CCF10716BFBC46003517C1 /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 53CCF10616BFBC46003517C1 /* UI.png */; };
+		53CCF10A16BFC078003517C1 /* UI_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 53CCF10816BFC078003517C1 /* UI_02.png */; };
+		53CCF10B16BFC078003517C1 /* UI_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 53CCF10916BFC078003517C1 /* UI_01.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		5386FA3A16BA0B51002C63AB /* morph_braceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = morph_braceTests.h; sourceTree = "<group>"; };
 		5386FA3B16BA0B51002C63AB /* morph_braceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = morph_braceTests.m; sourceTree = "<group>"; };
 		53A95FA516BA328D009A35E1 /* picture01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picture01.jpg; sourceTree = "<group>"; };
+		53CCF10616BFBC46003517C1 /* UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI.png; sourceTree = "<group>"; };
+		53CCF10816BFC078003517C1 /* UI_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_02.png; sourceTree = "<group>"; };
+		53CCF10916BFC078003517C1 /* UI_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_01.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +175,10 @@
 		53A95FA416BA327A009A35E1 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				53CCF10616BFBC46003517C1 /* UI.png */,
 				53A95FA516BA328D009A35E1 /* picture01.jpg */,
+				53CCF10816BFC078003517C1 /* UI_02.png */,
+				53CCF10916BFC078003517C1 /* UI_01.png */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -252,6 +261,9 @@
 				5386FA2116BA0B51002C63AB /* MainStoryboard_iPhone.storyboard in Resources */,
 				5386FA2416BA0B51002C63AB /* MainStoryboard_iPad.storyboard in Resources */,
 				53A95FA616BA328D009A35E1 /* picture01.jpg in Resources */,
+				53CCF10716BFBC46003517C1 /* UI.png in Resources */,
+				53CCF10A16BFC078003517C1 /* UI_02.png in Resources */,
+				53CCF10B16BFC078003517C1 /* UI_01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
