@@ -24,6 +24,7 @@
 		5386FA3116BA0B51002C63AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5386FA0916BA0B51002C63AB /* Foundation.framework */; };
 		5386FA3916BA0B51002C63AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5386FA3716BA0B51002C63AB /* InfoPlist.strings */; };
 		5386FA3C16BA0B51002C63AB /* morph_braceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5386FA3B16BA0B51002C63AB /* morph_braceTests.m */; };
+		53A95FA616BA328D009A35E1 /* 2013-01-31 10.07.21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53A95FA516BA328D009A35E1 /* 2013-01-31 10.07.21.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		5386FA3816BA0B51002C63AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5386FA3A16BA0B51002C63AB /* morph_braceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = morph_braceTests.h; sourceTree = "<group>"; };
 		5386FA3B16BA0B51002C63AB /* morph_braceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = morph_braceTests.m; sourceTree = "<group>"; };
+		53A95FA516BA328D009A35E1 /* 2013-01-31 10.07.21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2013-01-31 10.07.21.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		5386F9F816BA0B51002C63AB = {
 			isa = PBXGroup;
 			children = (
+				53A95FA416BA327A009A35E1 /* image */,
 				5386FA0D16BA0B51002C63AB /* morph brace */,
 				5386FA3416BA0B51002C63AB /* morph braceTests */,
 				5386FA0616BA0B51002C63AB /* Frameworks */,
@@ -161,6 +164,14 @@
 				5386FA3716BA0B51002C63AB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53A95FA416BA327A009A35E1 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				53A95FA516BA328D009A35E1 /* 2013-01-31 10.07.21.jpg */,
+			);
+			name = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +251,7 @@
 				5386FA1E16BA0B51002C63AB /* Default-568h@2x.png in Resources */,
 				5386FA2116BA0B51002C63AB /* MainStoryboard_iPhone.storyboard in Resources */,
 				5386FA2416BA0B51002C63AB /* MainStoryboard_iPad.storyboard in Resources */,
+				53A95FA616BA328D009A35E1 /* 2013-01-31 10.07.21.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,8 +404,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "morph brace/morph brace-Prefix.pch";
 				INFOPLIST_FILE = "morph brace/morph brace-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -404,8 +417,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "morph brace/morph brace-Prefix.pch";
 				INFOPLIST_FILE = "morph brace/morph brace-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -463,6 +477,7 @@
 				5386FA4116BA0B51002C63AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5386FA4216BA0B51002C63AB /* Build configuration list for PBXNativeTarget "morph braceTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +486,7 @@
 				5386FA4416BA0B51002C63AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
