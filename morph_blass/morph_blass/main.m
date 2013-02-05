@@ -1,8 +1,8 @@
 //
 //  main.m
-//  morph brace
+//  morph_blass
 //
-//  Created by ゆかいなおじさん.com on 13/01/31.
+//  Created by ゆかいなおじさん.com on 13/02/05.
 //  Copyright (c) 2013年 cnghwi. All rights reserved.
 //
 

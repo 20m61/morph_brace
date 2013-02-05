@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:morph brace.xcodeproj">
+      location = "self:morph_blass.xcodeproj">
    </FileRef>
 </Workspace>
