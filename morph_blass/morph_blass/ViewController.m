@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ViewController ()
 @property float viewWidthSize;
@@ -16,39 +17,10 @@
 @property float screenH;
 @property UIScrollView *scrollView;
 @property UIImageView *imageView;
+@property MPMoviePlayerController *moviePlayer;
 @end
 
 @implementation ViewController
-
--(void)viewWillAppear:(BOOL)animated{
-    self.screenW = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
-    self.screenH = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
-    //LOG
-    NSLog(@"viewWillAppear%f / %f",self.screenW, self.screenH);
-}
-
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-                                        duration:(NSTimeInterval)duration {
-    NSLog(@"rotate");
-    [self viewWillAppear:YES];
-    int orientasion = self.interfaceOrientation;
-    NSLog(@"%d", self.interfaceOrientation);
-    if ((orientasion == 1) || (orientasion == 2)) {
-        self.screenW = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
-        self.screenH = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
-    }else{
-        self.screenH = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
-        self.screenW = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
-    }
-    
-    CGRect rotateFitRect = CGRectMake(0, 0, self.screenW, self.screenH);
-    self.scrollView.frame = rotateFitRect;
-    // UIScrollViewのインスタンスをビューに追加
-    [self.view addSubview:self.scrollView];
-    
-    NSLog(@"%@", NSStringFromCGRect(self.scrollView.frame));
-    NSLog(@"rotate: %f / %f",self.screenW, self.screenH);
-}
 
 - (void)viewDidLoad
 {
@@ -56,12 +28,46 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self viewWillAppear:YES];
     [self makeScrollView];
+    
+    [self makeMovie];
+    
+    
+}
+
+- (void)makeMovie{
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[self localMovieURL]];
+    self.moviePlayer.movieSourceType = MPMovieSourceTypeFile;
+    CGRect rect = CGRectMake(0, 0, self.screenH, self.screenW);
+    self.moviePlayer.view.frame = rect;
+    self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+}
+
+-(NSURL *)localMovieURL
+{
+    NSURL *theMovieURL = nil;
+    NSBundle *bundle = [NSBundle mainBundle];
+    if (bundle)
+    {
+        NSString *moviePath = [bundle pathForResource:@"001" ofType:@"mov"];
+        if (moviePath)theMovieURL = [NSURL fileURLWithPath:moviePath];
+    }
+    return theMovieURL;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    //スクリーンのサイズを取得
+    self.screenW = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
+    self.screenH = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
+    //LOG
+    NSLog(@"viewWillAppear%f / %f",self.screenW, self.screenH);
 }
 
 - (void)makeScrollView{
     // UIScrollViewのインスタンス化
     CGRect rect = CGRectMake(0, 0, self.screenH, self.screenW);
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:rect];
+    //LOG
+    NSLog(@"scrollView: %@", NSStringFromCGRect(scrollView.frame));
     
     // UIScrollViewのオプション設定
     scrollView.bounces = YES;
@@ -72,6 +78,8 @@
     // サンプルとして画面に収まりきらないサイズ
     CGRect rect2 = CGRectMake(0, 0, self.screenH/2*3, self.screenW);
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:rect2];
+    //LOG
+    NSLog(@"imageView: %@", NSStringFromCGRect(imageView.frame));
     
     // 画像を設定
     imageView.image = [UIImage imageNamed:@"UI.png"];
@@ -85,8 +93,32 @@
     // UIScrollViewのインスタンスをビューに追加
     [self.view addSubview:scrollView];
     
-    // 表示されたときスクロールバーを点滅
-    [scrollView flashScrollIndicators];
+    //UIScrollViewのdeligateメソッドを呼ぶ
+    scrollView.delegate = self;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    float x = scrollView.contentOffset.x;
+    float y = scrollView.contentOffset.y;
+    NSLog(@"scrolling: %f, %f", x, y);
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    float x = scrollView.contentOffset.x;
+    float y = scrollView.contentOffset.y;
+    if (x == 240) {
+        [self mophSequence];
+    }
+    NSLog(@"scrolled: %f, %f", x, y);
+}
+
+- (void)mophSequence
+{
+    [self.view addSubview:self.moviePlayer.view];
+    [self.moviePlayer play];
+
 }
 
 - (void)didReceiveMemoryWarning
