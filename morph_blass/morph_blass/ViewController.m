@@ -20,6 +20,13 @@
 
 @implementation ViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.screenW = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
+    self.screenH = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
+    //LOG
+    NSLog(@"viewWillAppear%f / %f",self.screenW, self.screenH);
+}
+
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
                                         duration:(NSTimeInterval)duration {
     NSLog(@"rotate");
@@ -47,23 +54,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    [self viewWillAppear:YES];
     [self makeScrollView];
 }
 
 - (void)makeScrollView{
     // UIScrollViewのインスタンス化
-    CGRect rect = CGRectMake(0, 0, 480, 300);
+    CGRect rect = CGRectMake(0, 0, self.screenH, self.screenW);
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:rect];
     
-    // スクロールしたときバウンドさせないようにする
-    scrollView.bounces = NO;
+    // UIScrollViewのオプション設定
+    scrollView.bounces = YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
-    
     
     // UIImageViewのインスタンス化
     // サンプルとして画面に収まりきらないサイズ
-    CGRect rect2 = CGRectMake(0, 0, 720, 300);
+    CGRect rect2 = CGRectMake(0, 0, self.screenH/2*3, self.screenW);
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:rect2];
     
     // 画像を設定
@@ -71,7 +78,6 @@
     
     // UIScrollViewのインスタンスに画像を貼付ける
     [scrollView addSubview:imageView];
-    
     
     // UIScrollViewのコンテンツサイズを画像のサイズに合わせる
     scrollView.contentSize = imageView.bounds.size;
@@ -82,7 +88,6 @@
     // 表示されたときスクロールバーを点滅
     [scrollView flashScrollIndicators];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
