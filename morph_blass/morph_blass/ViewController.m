@@ -10,20 +10,37 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController ()
-@property float w;
-@property float h;
-
-
+@property float viewWidthSize;
+@property float viewHeightSize;
+@property float screenW;
+@property float screenH;
+@property UIScrollView *scrollView;
+@property UIImageView *imageView;
 @end
 
 @implementation ViewController
 
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    self.h = self.view.frame.size.height;
-    self.w = self.view.frame.size.width;
-    NSLog(@"%f / %f",self.view.frame.size.width, self.view.frame.size.height);
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+                                        duration:(NSTimeInterval)duration {
+    NSLog(@"rotate");
+    [self viewWillAppear:YES];
+    int orientasion = self.interfaceOrientation;
+    NSLog(@"%d", self.interfaceOrientation);
+    if ((orientasion == 1) || (orientasion == 2)) {
+        self.screenW = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
+        self.screenH = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
+    }else{
+        self.screenH = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
+        self.screenW = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
+    }
+    
+    CGRect rotateFitRect = CGRectMake(0, 0, self.screenW, self.screenH);
+    self.scrollView.frame = rotateFitRect;
+    // UIScrollViewのインスタンスをビューに追加
+    [self.view addSubview:self.scrollView];
+    
+    NSLog(@"%@", NSStringFromCGRect(self.scrollView.frame));
+    NSLog(@"rotate: %f / %f",self.screenW, self.screenH);
 }
 
 - (void)viewDidLoad
@@ -31,23 +48,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self viewWillAppear:YES];
-    
-    // UIImageViewのインスタンス化
-    // サンプルとして画面に収まりきらないサイズ
-    CGRect rect = CGRectMake(0, 0, self.h*2, self.w*2);
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:rect];
-    NSLog(@"imageView: %@", NSStringFromCGRect(imageView.frame));
-    
+    [self makeScrollView];
+}
+
+- (void)makeScrollView{
     // UIScrollViewのインスタンス化
-    CGRect rect2 = CGRectMake(0, 0, self.h, self.w);
-    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:rect2];
-//    scrollView.frame = self.view.frame;
-    NSLog(@"scrollView: %@", NSStringFromCGRect(scrollView.frame));
+    CGRect rect = CGRectMake(0, 0, 480, 300);
+    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:rect];
     
     // スクロールしたときバウンドさせないようにする
     scrollView.bounces = NO;
     scrollView.pagingEnabled = YES;
+    
+    
+    // UIImageViewのインスタンス化
+    // サンプルとして画面に収まりきらないサイズ
+    CGRect rect2 = CGRectMake(0, 0, 720, 300);
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:rect2];
     
     // 画像を設定
     imageView.image = [UIImage imageNamed:@"UI.png"];
@@ -57,7 +74,7 @@
     
     
     // UIScrollViewのコンテンツサイズを画像のサイズに合わせる
-    scrollView.contentSize = imageView.frame.size;
+    scrollView.contentSize = imageView.bounds.size;
     
     // UIScrollViewのインスタンスをビューに追加
     [self.view addSubview:scrollView];
@@ -65,6 +82,7 @@
     // 表示されたときスクロールバーを点滅
     [scrollView flashScrollIndicators];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

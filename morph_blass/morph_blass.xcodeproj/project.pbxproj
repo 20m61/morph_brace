@@ -25,6 +25,7 @@
 		53438CD516C0F2B0006771DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53438CD316C0F2B0006771DE /* InfoPlist.strings */; };
 		53438CD816C0F2B0006771DE /* morph_blassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53438CD716C0F2B0006771DE /* morph_blassTests.m */; };
 		53438CE816C1002E006771DE /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 53438CE716C1002E006771DE /* UI.png */; };
+		53438CE916C21409006771DE /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 53438CE716C1002E006771DE /* UI.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +241,7 @@
 				53438CAE16C0F2AF006771DE /* InfoPlist.strings in Resources */,
 				53438CB616C0F2AF006771DE /* Default.png in Resources */,
 				53438CB816C0F2AF006771DE /* Default@2x.png in Resources */,
+				53438CE916C21409006771DE /* UI.png in Resources */,
 				53438CBA16C0F2AF006771DE /* Default-568h@2x.png in Resources */,
 				53438CBD16C0F2AF006771DE /* MainStoryboard_iPhone.storyboard in Resources */,
 				53438CC016C0F2AF006771DE /* MainStoryboard_iPad.storyboard in Resources */,
