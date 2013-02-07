@@ -190,7 +190,20 @@
 #pragma mark -morph sequence ivent
 - (IBAction)beltTouchPoint:(id)sender {
     NSLog(@"belt touch!");
-    [self.imageViewAnims2 stopAnimating];
+    [UIView animateWithDuration:.5f
+                          delay:0.0f
+                        options:UIViewAnimationOptionAllowUserInteraction
+                     animations:^(void)
+     {
+         self.imageViewAnims2.alpha = .0f;
+         NSLog(@"anims2");
+     }
+                     completion:^(BOOL finished)
+    {
+        [self.imageViewAnims2 stopAnimating];
+    }
+     ];
+    
 }
 
 #pragma mark -belt mode views
