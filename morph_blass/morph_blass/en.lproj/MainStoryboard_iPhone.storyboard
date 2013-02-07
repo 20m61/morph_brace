@@ -20,11 +20,22 @@
                                             <constraint firstAttribute="height" constant="320" id="oCM-Ie-fIK"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me3-eR-02u">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="EZF-hT-1xp" appends="YES" id="9Jh-ik-mzh"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="PHR-bn-T7N" firstAttribute="leading" secondItem="p30-jY-eGk" secondAttribute="leading" constant="-44" id="12z-hP-UFM"/>
                                     <constraint firstItem="PHR-bn-T7N" firstAttribute="top" secondItem="p30-jY-eGk" secondAttribute="top" constant="27" id="f6h-R5-ynJ"/>
+                                    <constraint firstItem="me3-eR-02u" firstAttribute="trailing" secondItem="PHR-bn-T7N" secondAttribute="trailing" type="default" id="gcF-Ri-TC8"/>
+                                    <constraint firstItem="me3-eR-02u" firstAttribute="top" secondItem="PHR-bn-T7N" secondAttribute="top" type="default" id="jKD-8l-Xlm"/>
+                                    <constraint firstItem="me3-eR-02u" firstAttribute="leading" secondItem="p30-jY-eGk" secondAttribute="leading" constant="405" id="m8T-Dh-hvk"/>
+                                    <constraint firstAttribute="bottom" secondItem="me3-eR-02u" secondAttribute="bottom" constant="193" id="wcq-Ls-Rnc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -47,6 +58,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="EZF-hT-1xp">
+                    <connections>
+                        <action selector="beltTouchPoint:" destination="2" id="vhA-Uj-oaG"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-347" y="-165"/>
         </scene>

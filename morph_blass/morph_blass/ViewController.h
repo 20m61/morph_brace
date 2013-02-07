@@ -8,5 +8,6 @@
 
 @interface ViewController : UIViewController 
 @property (strong, nonatomic) IBOutlet UIView *view;
+- (IBAction)beltTouchPoint:(id)sender;
 
 @end
