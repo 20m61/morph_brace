@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ViewController ()
+@interface ViewController()
 //画面サイズを合わせるためのプロパティ
 @property float viewWidthSize;
 @property float viewHeightSize;
@@ -20,8 +20,11 @@
 //animationのためのimageView
 @property UIImageView *imageViewAnims1;
 @property UIImageView *imageViewAnims2;
-
+@property UIImageView *imageViewAnims3;
+//usually viewsのscrollview
 @property UIScrollView *scrollView;
+//belt vews
+@property UIView *beltView;
 @end
 
 @implementation ViewController
@@ -46,7 +49,7 @@
     NSLog(@"viewWillAppear%@", NSStringFromCGRect(self.rect));
 }
 
-#pragma mark -usuary views
+#pragma mark -usual views
 
 - (void)makeScrollView{
     
@@ -79,11 +82,11 @@
     // UIScrollViewのインスタンスをビューに追加
     [self.view addSubview:self.scrollView];
     
-    //UIScrollViewのdeligateメソッドを呼ぶ
+    //UIScrollViewのdelegateメソッドを呼ぶ
     self.scrollView.delegate = self;
 }
 
-#pragma mark -usualy views ivent
+#pragma mark -usual views ivent
 
 //scrollViewがスクロールされているときに実行
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -149,6 +152,20 @@
     self.imageViewAnims2.animationImages = anims2;
     [self.view addSubview:self.imageViewAnims2];
     NSLog(@"anims2-00->%@", [self.imageViewAnims2.animationImages objectAtIndex:0]);
+    
+    //anims3をanimateするviewをインスタンス化
+    self.imageViewAnims3 = [[UIImageView alloc]initWithFrame:self.rect];
+    NSMutableArray *anims3 = [[NSMutableArray alloc]init];
+    for (int i = 0; i < 30; i++) {
+        UIImage *tempImgAnims3 = [UIImage imageNamed:[NSString stringWithFormat:@"anims3_%03d.png",i]];
+        [anims3 addObject:tempImgAnims3];
+    }
+    self.imageViewAnims3.animationImages = anims3;
+    [self.view addSubview:self.imageViewAnims3];
+    NSLog(@"anims3-00->%@", [self.imageViewAnims3.animationImages objectAtIndex:0]);
+
+    
+    
 }
 
 //animateを実行
@@ -160,6 +177,10 @@
     //anims2の設定
     self.imageViewAnims2.animationDuration = 0;
     self.imageViewAnims2.animationRepeatCount = 0;
+    
+    //anims3の設定
+    self.imageViewAnims3.animationDuration = 0;
+    self.imageViewAnims3.animationRepeatCount = 1;
     
     //animateの実行
     [UIView animateWithDuration:3.0f
@@ -188,6 +209,8 @@
 }
 
 #pragma mark -morph sequence ivent
+
+//viewがタッチされ続けたときに実行（storyboad参照）
 - (IBAction)beltTouchPoint:(id)sender {
     NSLog(@"belt touch!");
     [UIView animateWithDuration:.5f
@@ -196,17 +219,39 @@
                      animations:^(void)
      {
          self.imageViewAnims2.alpha = .0f;
+         [self.imageViewAnims3 startAnimating];
          NSLog(@"anims2");
      }
                      completion:^(BOOL finished)
     {
         [self.imageViewAnims2 stopAnimating];
+        [self prepareBeltView];
+        
     }
      ];
     
 }
 
 #pragma mark -belt mode views
+- (void)prepareBeltView{
+    //veltViewをインスタンス化
+    self.beltView = [[UIView alloc]initWithFrame:self.rect];
+    //LOG
+    NSLog(@"scrollView: %@", NSStringFromCGRect(self.scrollView.frame));
+    
+    UIImageView *imageViewBelt = [[UIImageView alloc]initWithFrame:self.rect];
+    //LOG
+    NSLog(@"imageViewBelt: %@", NSStringFromCGRect(imageViewBelt.frame));
+    // 画像を設定
+    imageViewBelt.image = [UIImage imageNamed:@"UIBelt.png"];
+    //beltViewに追加
+    [self.beltView addSubview:imageViewBelt];
+    NSLog(@"add pic on beltView");
+
+    // beltVIewのインスタンスをビューに追加
+    [self.view addSubview:self.beltView];
+    NSLog(@"visible veltView");
+}
 
 #pragma mark -belt mode ivent
 
