@@ -12,11 +12,12 @@
 
 @interface ViewController()
 //画面サイズを合わせるためのプロパティ
+@property UIView *mainView;
 @property float viewWidthSize;
 @property float viewHeightSize;
 @property float screenW;
 @property float screenH;
-@property CGRect rect;
+@property CGRect screenSizeRect;
 //animationのためのimageView
 @property UIImageView *imageViewAnims1;
 @property UIImageView *imageViewAnims2;
@@ -25,6 +26,7 @@
 @property UIScrollView *scrollView;
 //belt vews
 @property UIView *beltView;
+@property UIView *touchToUsualView;
 @end
 
 @implementation ViewController
@@ -44,17 +46,23 @@
     //スクリーンのサイズを取得
     self.screenW = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
     self.screenH = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
-    self.rect = CGRectMake(0, 0, self.screenH, self.screenW);
+    self.screenSizeRect = CGRectMake(0, 0, self.screenH, self.screenW);
     //LOG
-    NSLog(@"viewWillAppear%@", NSStringFromCGRect(self.rect));
+    NSLog(@"viewWillAppear%@", NSStringFromCGRect(self.screenSizeRect));
+    
+//    self.mainView = [[UIView alloc]initWithFrame:self.screenSizeRect];
+//    [self.view addSubview:self.mainView];
+
+
 }
+    
 
 #pragma mark -usual views
 
 - (void)makeScrollView{
     
     // UIScrollViewのインスタンス化
-    self.scrollView = [[UIScrollView alloc]initWithFrame:self.rect];
+    self.scrollView = [[UIScrollView alloc]initWithFrame:self.screenSizeRect];
     //LOG
     NSLog(@"scrollView: %@", NSStringFromCGRect(self.scrollView.frame));
     
@@ -132,7 +140,7 @@
 //animateを表示する準備
 - (void)prepareMakeMovie{
     //anims1をanimateするviewをインスタンス化
-    self.imageViewAnims1 = [[UIImageView alloc]initWithFrame:self.rect];
+    self.imageViewAnims1 = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
     NSMutableArray *anims1 = [[NSMutableArray alloc]init];
     for (int i = 0; i < 59; i++) {
         UIImage *tempImgAnims1 = [UIImage imageNamed:[NSString stringWithFormat:@"anims1_%03d.png",i]];
@@ -143,7 +151,7 @@
     NSLog(@"anims1-00->%@", [self.imageViewAnims1.animationImages objectAtIndex:0]);
     
     //anims2をanimateするviewをインスタンス化
-    self.imageViewAnims2 = [[UIImageView alloc]initWithFrame:self.rect];
+    self.imageViewAnims2 = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
     NSMutableArray *anims2 = [[NSMutableArray alloc]init];
     for (int i = 0; i < 14; i++) {
         UIImage *tempImgAnims2 = [UIImage imageNamed:[NSString stringWithFormat:@"anims2_%03d.png",i]];
@@ -154,7 +162,7 @@
     NSLog(@"anims2-00->%@", [self.imageViewAnims2.animationImages objectAtIndex:0]);
     
     //anims3をanimateするviewをインスタンス化
-    self.imageViewAnims3 = [[UIImageView alloc]initWithFrame:self.rect];
+    self.imageViewAnims3 = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
     NSMutableArray *anims3 = [[NSMutableArray alloc]init];
     for (int i = 0; i < 30; i++) {
         UIImage *tempImgAnims3 = [UIImage imageNamed:[NSString stringWithFormat:@"anims3_%03d.png",i]];
@@ -225,6 +233,8 @@
                      completion:^(BOOL finished)
     {
         [self.imageViewAnims2 stopAnimating];
+        self.imageViewAnims1 = [[UIImageView alloc]init];
+        self.imageViewAnims2 = [[UIImageView alloc]init];
         [self prepareBeltView];
         
     }
@@ -232,14 +242,18 @@
     
 }
 
+- (IBAction)beltTouchPointToUsualView:(id)sender {
+    NSLog(@"swipe in beltView");
+}
+
 #pragma mark -belt mode views
 - (void)prepareBeltView{
     //veltViewをインスタンス化
-    self.beltView = [[UIView alloc]initWithFrame:self.rect];
+    self.beltView = [[UIView alloc]initWithFrame:self.screenSizeRect];
     //LOG
     NSLog(@"scrollView: %@", NSStringFromCGRect(self.scrollView.frame));
     
-    UIImageView *imageViewBelt = [[UIImageView alloc]initWithFrame:self.rect];
+    UIImageView *imageViewBelt = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
     //LOG
     NSLog(@"imageViewBelt: %@", NSStringFromCGRect(imageViewBelt.frame));
     // 画像を設定
@@ -247,15 +261,57 @@
     //beltViewに追加
     [self.beltView addSubview:imageViewBelt];
     NSLog(@"add pic on beltView");
+    
+    //タッチエリアを作成しbeltViewにのせる
+    int H = self.screenH;
+    CGRect box = CGRectMake((H-100), 0, 100, 100);
+//    CGRect box = CGRectMake(0, 0, 200, 200);
+    self.touchToUsualView = [[UIView alloc]initWithFrame:box];
+//    self.touchToUsualView.backgroundColor = [UIColor blackColor];
+    [self.beltView addSubview:self.touchToUsualView];
+    NSLog(@"add touchToUsualView on beltView");
+    NSLog(@"box rect size: %@", NSStringFromCGRect(box));
+    
+    NSLog(@"beltView's subview: %@", self.beltView);
+    NSLog(@"touchToUsualView's superview: %@", self.touchToUsualView.superview);
+
 
     // beltVIewのインスタンスをビューに追加
     [self.view addSubview:self.beltView];
     NSLog(@"visible veltView");
+    
+    [self prepareTouchToUsualViewAction];
 }
 
 #pragma mark -belt mode ivent
+-(void)prepareTouchToUsualViewAction{
+    UISwipeGestureRecognizer *touchToUsualViewAction = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(touchToUsualViewAction:)];
+    touchToUsualViewAction.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.touchToUsualView addGestureRecognizer: touchToUsualViewAction];
+}
 
-
+- (void)touchToUsualViewAction:(UISwipeGestureRecognizer *)sender {
+    NSLog(@"swipe right");
+    
+    [UIView animateWithDuration:.5f
+                          delay:0.0f
+                        options:UIViewAnimationOptionAllowUserInteraction
+                     animations:^(void)
+     {
+         self.beltView.alpha = .0f;
+         NSLog(@"kill beltView");
+     }
+                     completion:^(BOOL finished)
+     {
+         self.beltView = [[UIView alloc]init];
+         self.scrollView = [[UIView alloc]init];
+         [self makeScrollView];
+         [self prepareMakeMovie];
+         
+     }
+     ];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
