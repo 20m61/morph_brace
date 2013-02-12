@@ -6,7 +6,8 @@
 //  Copyright (c) 2013年 cnghwi. All rights reserved.
 //
 
-@interface ViewController : UIViewController 
+@interface ViewController : UIViewController<UIScrollViewDelegate>
+
 @property (strong, nonatomic) IBOutlet UIView *view;
 - (IBAction)beltTouchPoint:(id)sender;
 - (IBAction)beltTouchPointToUsualView:(id)sender;
