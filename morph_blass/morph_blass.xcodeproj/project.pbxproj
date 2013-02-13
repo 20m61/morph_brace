@@ -24,8 +24,8 @@
 		53438CCD16C0F2B0006771DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53438CA516C0F2AF006771DE /* Foundation.framework */; };
 		53438CD516C0F2B0006771DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53438CD316C0F2B0006771DE /* InfoPlist.strings */; };
 		53438CD816C0F2B0006771DE /* morph_blassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53438CD716C0F2B0006771DE /* morph_blassTests.m */; };
-		53438CE816C1002E006771DE /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 53438CE716C1002E006771DE /* UI.png */; };
-		53438CE916C21409006771DE /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 53438CE716C1002E006771DE /* UI.png */; };
+		53438CE816C1002E006771DE /* UIUsual.png in Resources */ = {isa = PBXBuildFile; fileRef = 53438CE716C1002E006771DE /* UIUsual.png */; };
+		53438CE916C21409006771DE /* UIUsual.png in Resources */ = {isa = PBXBuildFile; fileRef = 53438CE716C1002E006771DE /* UIUsual.png */; };
 		53438CEC16C25A93006771DE /* 001.mov in Resources */ = {isa = PBXBuildFile; fileRef = 53438CEA16C25A93006771DE /* 001.mov */; };
 		53438CED16C25A93006771DE /* 002.mov in Resources */ = {isa = PBXBuildFile; fileRef = 53438CEB16C25A93006771DE /* 002.mov */; };
 		53438CF116C260CE006771DE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53438CF016C260CE006771DE /* AVFoundation.framework */; };
@@ -172,7 +172,7 @@
 		53438CD416C0F2B0006771DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		53438CD616C0F2B0006771DE /* morph_blassTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = morph_blassTests.h; sourceTree = "<group>"; };
 		53438CD716C0F2B0006771DE /* morph_blassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = morph_blassTests.m; sourceTree = "<group>"; };
-		53438CE716C1002E006771DE /* UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UI.png; path = ../UI.png; sourceTree = "<group>"; };
+		53438CE716C1002E006771DE /* UIUsual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UIUsual.png; path = ../UIUsual.png; sourceTree = "<group>"; };
 		53438CEA16C25A93006771DE /* 001.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 001.mov; sourceTree = "<group>"; };
 		53438CEB16C25A93006771DE /* 002.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 002.mov; sourceTree = "<group>"; };
 		53438CF016C260CE006771DE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -351,7 +351,7 @@
 			children = (
 				53438CEA16C25A93006771DE /* 001.mov */,
 				53438CEB16C25A93006771DE /* 002.mov */,
-				53438CE716C1002E006771DE /* UI.png */,
+				53438CE716C1002E006771DE /* UIUsual.png */,
 				53438EBE16C4F137006771DE /* UIBelt.png */,
 				53438CB216C0F2AF006771DE /* AppDelegate.h */,
 				53438CB316C0F2AF006771DE /* AppDelegate.m */,
@@ -598,7 +598,7 @@
 				53438CAE16C0F2AF006771DE /* InfoPlist.strings in Resources */,
 				53438CB616C0F2AF006771DE /* Default.png in Resources */,
 				53438CB816C0F2AF006771DE /* Default@2x.png in Resources */,
-				53438CE916C21409006771DE /* UI.png in Resources */,
+				53438CE916C21409006771DE /* UIUsual.png in Resources */,
 				53438CBA16C0F2AF006771DE /* Default-568h@2x.png in Resources */,
 				53438CBD16C0F2AF006771DE /* MainStoryboard_iPhone.storyboard in Resources */,
 				53438CC016C0F2AF006771DE /* MainStoryboard_iPad.storyboard in Resources */,
@@ -718,7 +718,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53438CD516C0F2B0006771DE /* InfoPlist.strings in Resources */,
-				53438CE816C1002E006771DE /* UI.png in Resources */,
+				53438CE816C1002E006771DE /* UIUsual.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +942,7 @@
 				53438CDD16C0F2B0006771DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53438CDE16C0F2B0006771DE /* Build configuration list for PBXNativeTarget "morph_blassTests" */ = {
 			isa = XCConfigurationList;
@@ -950,6 +951,7 @@
 				53438CE016C0F2B0006771DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
