@@ -15,23 +15,11 @@
                             <view contentMode="scaleToFill" verticalHuggingPriority="362" translatesAutoresizingMaskIntoConstraints="NO" id="p30-jY-eGk">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHR-bn-T7N"/>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me3-eR-02u">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="EZF-hT-1xp" appends="YES" id="9Jh-ik-mzh"/>
-                                            <outletCollection property="gestureRecognizers" destination="VZn-wQ-J2k" appends="YES" id="VvP-Dl-rNx"/>
-                                        </connections>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="me3-eR-02u" firstAttribute="top" secondItem="p30-jY-eGk" secondAttribute="top" type="default" id="7B9-77-Wsm"/>
                                     <constraint firstItem="PHR-bn-T7N" firstAttribute="top" secondItem="p30-jY-eGk" secondAttribute="top" type="default" id="84l-mK-HMz"/>
-                                    <constraint firstAttribute="bottom" secondItem="me3-eR-02u" secondAttribute="bottom" constant="220" id="E3n-mx-AQK"/>
                                     <constraint firstItem="PHR-bn-T7N" firstAttribute="leading" secondItem="p30-jY-eGk" secondAttribute="leading" type="default" id="OLl-1m-sHU"/>
-                                    <constraint firstItem="me3-eR-02u" firstAttribute="leading" secondItem="p30-jY-eGk" secondAttribute="leading" constant="449" id="d01-ez-jsl"/>
-                                    <constraint firstItem="me3-eR-02u" firstAttribute="trailing" secondItem="p30-jY-eGk" secondAttribute="trailing" type="default" id="v9y-zV-44V"/>
                                     <constraint firstItem="PHR-bn-T7N" firstAttribute="trailing" secondItem="p30-jY-eGk" secondAttribute="trailing" type="default" id="xWi-Nn-Ehy"/>
                                     <constraint firstItem="PHR-bn-T7N" firstAttribute="bottom" secondItem="p30-jY-eGk" secondAttribute="bottom" type="default" id="zji-4U-kfn"/>
                                 </constraints>
@@ -58,7 +46,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="EZF-hT-1xp">
                     <connections>
-                        <action selector="beltTouchPoint:" destination="2" id="vhA-Uj-oaG"/>
+                        <action selector="touchIventUsualToBelt:" destination="2" id="lR2-eL-2rn"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="VZn-wQ-J2k">

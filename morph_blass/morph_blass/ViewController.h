@@ -7,9 +7,6 @@
 //
 
 @interface ViewController : UIViewController<UIScrollViewDelegate>
-
 @property (strong, nonatomic) IBOutlet UIView *view;
-- (IBAction)beltTouchPoint:(id)sender;
-- (IBAction)beltTouchPointToUsualView:(id)sender;
 
 @end

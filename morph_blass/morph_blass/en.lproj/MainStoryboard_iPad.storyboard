@@ -37,7 +37,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="bVJ-lM-46D">
                     <connections>
-                        <action selector="beltTouchPoint:" destination="2" id="mEC-1i-1zK"/>
+                        <action selector="touchIventUsualToBelt:" destination="2" id="0kJ-Qh-rNQ"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
