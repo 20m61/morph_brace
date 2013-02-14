@@ -19,9 +19,7 @@
 @property UIScrollView *usualScrollView;
 //belt
 @property UIView *beltView;
-@property UIView *beltTouchView;
 @property UIButton *beltTouchButton;
-
 //mophing
 @property UIImageView *imageViewAnims1;
 @property UIImageView *imageViewAnims2;
@@ -41,7 +39,9 @@
     [self prepareBeltView]; //beltView
     [self prepareBeltTouchView]; //beltTouchView
     [self prepareIvents]; //ivents
-    self.beltView.alpha = .0f;
+    
+    self.beltView.alpha = .0f; //beltViewを不可視化
+    NSLog(@"veltView invisible");
 }
 
 #pragma mark -
@@ -56,7 +56,7 @@
     self.screenH = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
     self.screenSizeRect = CGRectMake(0, 0, self.screenH, self.screenW);
     //LOG
-    NSLog(@"viewWillAppear%@", NSStringFromCGRect(self.screenSizeRect));
+    NSLog(@"viewWillAppear: %@", NSStringFromCGRect(self.screenSizeRect));
 }
 
 #pragma mark -
@@ -123,12 +123,6 @@
 - (void)prepareBeltTouchView{
     int H = self.screenH;
     CGRect box = CGRectMake((H-100), 0, 100, 100);
-//    self.beltTouchView = [[UIView alloc]initWithFrame:box];
-//    self.beltTouchView.backgroundColor = [UIColor redColor];
-//    [self.view addSubview:self.beltTouchView];
-//    NSLog(@"add beltTouchView on view");
-//    self.beltTouchView.alpha = .0f;
-//    NSLog(@"beltTouchView invisible");
     
     self.beltTouchButton = [[UIButton alloc]initWithFrame:box];
     [self.beltTouchButton addTarget:self action:@selector(touchIventUsualToBelt:) forControlEvents:UIControlEventTouchDown];
@@ -138,7 +132,7 @@
     [self.view addSubview:self.beltTouchButton];
 }
 
-#pragma mark -belt mode ivents//->touchIvent
+#pragma mark -belt mode ivents//->touchIvents
 
 #pragma mark -
 #pragma mark === mophing  ===
@@ -222,13 +216,13 @@
 }
 
 //beltからusualへ
-- (void)morphBeltToUsual
+- (void)morphingBeltToUsual
 {
     
     NSLog(@"morphing!: belt to usual");
 }
 
-#pragma mark -morphing ivents//->touchIvent
+#pragma mark -morphing ivents//->touchIvents
 
 #pragma mark -
 #pragma mark === ivents  ===
@@ -266,7 +260,6 @@
         [self morphingUsualToBelt];
         
         //beltTouchViewを可視化
-        self.beltTouchView.alpha = 1.0;
         NSLog(@"beltTouchView visible");
         
         //暫定
@@ -281,21 +274,9 @@
 }
 
 //longTouchをトリガーにしたイベント
-//- (void)prepareTouchIventUsualToBelt{
-//    UILongPressGestureRecognizer *touchToUsualViewAction = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(touchIventUsualToBelt:)];
-//    // 指のズレを許容する範囲 10px
-//    touchToUsualViewAction.allowableMovement = 100;
-//    
-//    // イベントが発生するまでタップする時間 0.8 秒
-//    touchToUsualViewAction.minimumPressDuration = 0.5f;
-//    // タップする回数 1回の場合は[0] 2回の場合は[1]を指定
-//    touchToUsualViewAction.numberOfTapsRequired = 1;
-//    // タップする指の数
-//    touchToUsualViewAction.numberOfTouchesRequired = 1;
-//    [self.beltTouchView addGestureRecognizer: touchToUsualViewAction];
-//    NSLog(@"add touchToUsualViewAction on touchBeltToUsualView");
-//    
-//}
+- (void)prepareTouchIventUsualToBelt{
+    
+}
 
 //mophingUsualToBelt
 - (void)touchIventUsualToBelt:(UIButton *)beltTouchButton {
@@ -314,9 +295,7 @@
                      completion:^(BOOL finished)
      {
          self.imageViewAnims3.alpha = .0f;
-         self.beltTouchView.alpha = .0f;
          self.beltView.alpha = 1.0f;
-         self.beltTouchView.alpha = 1.0f;
          NSLog(@"beltView visible");
      }
      ];
@@ -324,45 +303,18 @@
 
 
 //右スワイプをトリガーにしたイベント
-//-(void)prepareTouchIventBeltToUsual{
-//    UISwipeGestureRecognizer *touchToUsualViewAction = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(touchIventBeltToUsual:)];
-//    touchToUsualViewAction.direction = UISwipeGestureRecognizerDirectionRight;
-//    [self.beltTouchView addGestureRecognizer: touchToUsualViewAction];
-//}
+-(void)prepareTouchIventBeltToUsual{
+
+}
 
 - (void)touchIventBeltToUsual:(UIButton *)beltTouchButton {
     NSLog(@"swipe right");
     
-    //    CGPoint pt = [[touchToUsualViewAction anyObject] locationInView:self.beltView];
-    //    if (CGRectContainsPoint(CGRectMake(0,0,100,100),pt)) {
-    //        NSLog(@"あたり");
-    //    }
-    //    [UIView animateWithDuration:.5f
-    //                          delay:0.0f
-    //                        options:UIViewAnimationOptionAllowUserInteraction
-    //                     animations:^(void)
-    //     {
-    //         self.beltView.alpha = .0f;
-    //     }
-    //                     completion:^(BOOL finished)
-    //     {
-    
     //beltVoiewを透明に
     self.beltView.alpha = .0f;
-    self.beltTouchView.alpha = .0f;
 
     [self prepareUsualView];
     [self prepareMophing];
-    
-    //  [self.beltView removeFromSuperview];
-    //    CGRect viewsize = CGRectMake(50, 50, 100, 100);
-    //    self.view = [[UIView alloc]initWithFrame:self.screenSizeRect];
-    //    self.view.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-    //    NSLog(@"kill beltView");
-    //    NSLog(@"beltView: %@", NSStringFromCGRect(self.beltView.frame));
-    //     }
-    //     ];
-    
 }
 
 - (void)didReceiveMemoryWarning
