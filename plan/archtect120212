@@ -1,0 +1,25 @@
+	各view生成の手順
+	--------------------------
+	UIviewのインスタンス化
+	UIImageViewのインスタンス化
+	画像を設定
+	UIViewにUIimageViewを追加
+	UIViewをviewに追加
+	--------------------------
+	
+	各アニメーション実行の手順
+	--------------------------
+	--------------------------
+
+MODE
+	usual(scrollView)
+	
+	belt(beltView)
+	
+	weponWith------
+	
+	mophingUsualToBelt
+	mophingBeltToUsual
+	mophingBeltToWeponWith------
+	
+	
