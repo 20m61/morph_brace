@@ -12,13 +12,15 @@
 
 @interface UIView ()
 - (NSString *)recursiveDescription;
+
 @end
 
 @interface ViewController()
-//画面サイズを合わせるためのプロパティ
-@property float screenW;
-@property float screenH;
-@property CGRect screenSizeRect;
+{
+    //画面サイズ
+    CGRect screenSizeRect;
+}
+
 //usual
 @property UIScrollView *usualScrollView;
 //belt
@@ -38,6 +40,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    
+    screenSizeRect = CGRectMake(0, 0,[[UIScreen mainScreen] applicationFrame].size.height,[[UIScreen mainScreen] applicationFrame].size.width);
     [self viewWillAppear:YES]; //prepare
     [self resetToUsualView];
 }
@@ -45,18 +49,6 @@
 #pragma mark -
 #pragma mark === prepare  ===
 #pragma mark
-//viewが表示される直前に実行
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    //スクリーンのサイズを取得
-    self.screenW = [[UIScreen mainScreen] applicationFrame].size.width;  //幅
-    self.screenH = [[UIScreen mainScreen] applicationFrame].size.height; //高さ
-    self.screenSizeRect = CGRectMake(0, 0, self.screenH, self.screenW);
-    //LOG
-    NSLog(@"viewWillAppear: %@", NSStringFromCGRect(self.screenSizeRect));
-}
-
 - (void)resetToUsualView{
     [self prepareUsualView]; //usual
     [self prepareMophing]; //mophing
@@ -104,7 +96,7 @@
 #pragma mark
 - (void)prepareUsualView{
     // UIScrollViewのインスタンス化--------------------------------------------------
-    self.usualScrollView = [[UIScrollView alloc]initWithFrame:self.screenSizeRect];
+    self.usualScrollView = [[UIScrollView alloc]initWithFrame:screenSizeRect];
     NSLog(@"usualScrollView: %@", NSStringFromCGRect(self.usualScrollView.frame));
     // UIScrollViewのオプション設定
     self.usualScrollView.bounces = YES;
@@ -112,7 +104,7 @@
     self.usualScrollView.pagingEnabled = YES;
     
     // UIImageView(scrollViewにのるimageView)のインスタンス化-------------------------
-    CGRect usualImageViewSizeRect = CGRectMake(0, 0, self.screenH/2*3, self.screenW);
+    CGRect usualImageViewSizeRect = CGRectMake(0, 0, screenSizeRect.size.width/2*3, screenSizeRect.size.height);
     UIImageView *usualImageView = [[UIImageView alloc]initWithFrame:usualImageViewSizeRect];
     NSLog(@"usualImageView: %@", NSStringFromCGRect(usualImageView.frame));
     // 画像を設定
@@ -139,11 +131,11 @@
 #pragma mark
 - (void)prepareBeltView{
     // UIView(beltView)をインスタンス化----------------------------------------------
-    self.beltView = [[UIView alloc]initWithFrame:self.screenSizeRect];
+    self.beltView = [[UIView alloc]initWithFrame:screenSizeRect];
     NSLog(@"beltView: %@", NSStringFromCGRect(self.beltView.frame));
     
     // UIImageView(beltViewにのるimageView)のインスタンス化---------------------------
-    UIImageView *beltImageView = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
+    UIImageView *beltImageView = [[UIImageView alloc]initWithFrame:screenSizeRect];
     NSLog(@"beltImageView: %@", NSStringFromCGRect(beltImageView.frame));
     // 画像を設定
     beltImageView.image = [UIImage imageNamed:@"UIBelt.png"];
@@ -160,7 +152,7 @@
 //ベルトモードのON/OFFを操作するタッチエリア
 - (void)prepareBeltTouchButton{
     //beltTouchButtonの大きさを定義する四角形
-    int H = self.screenH;
+    int H = screenSizeRect.size.width;
     CGRect box = CGRectMake((H-100), 0, 100, 100);
     
     //beltTouchButtonをインスタンス化
@@ -185,7 +177,7 @@
 //mophingを表示する準備(各imageViewのインスタンスを生成)
 - (void)prepareMophing{
     //anims1をanimateするviewをインスタンス化-----------------------------------------
-    self.imageViewAnims1 = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
+    self.imageViewAnims1 = [[UIImageView alloc]initWithFrame:screenSizeRect];
     NSMutableArray *anims1 = [[NSMutableArray alloc]init];
     for (int i = 0; i < 59; i++) {
         UIImage *tempImgAnims1 = [UIImage imageNamed:[NSString stringWithFormat:@"anims1_%03d.png",i]];
@@ -199,7 +191,7 @@
     self.imageViewAnims1.animationRepeatCount = 1;
     
     //anims2をanimateするviewをインスタンス化-----------------------------------------
-    self.imageViewAnims2 = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
+    self.imageViewAnims2 = [[UIImageView alloc]initWithFrame:screenSizeRect];
     NSMutableArray *anims2 = [[NSMutableArray alloc]init];
     for (int i = 0; i < 14; i++) {
         UIImage *tempImgAnims2 = [UIImage imageNamed:[NSString stringWithFormat:@"anims2_%03d.png",i]];
@@ -213,7 +205,7 @@
     self.imageViewAnims2.animationRepeatCount = 0;
     
     //anims3をanimateするviewをインスタンス化-----------------------------------------
-    self.imageViewAnims3 = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
+    self.imageViewAnims3 = [[UIImageView alloc]initWithFrame:screenSizeRect];
     NSMutableArray *anims3 = [[NSMutableArray alloc]init];
     for (int i = 0; i < 30; i++) {
         UIImage *tempImgAnims3 = [UIImage imageNamed:[NSString stringWithFormat:@"anims3_%03d.png",i]];
@@ -228,7 +220,7 @@
     
     
     //anims4をanimateするviewをインスタンス化-----------------------------------------
-    self.imageViewAnims4 = [[UIImageView alloc]initWithFrame:self.screenSizeRect];
+    self.imageViewAnims4 = [[UIImageView alloc]initWithFrame:screenSizeRect];
     NSMutableArray *anims4 = [[NSMutableArray alloc]init];
     for (int i = 0; i < 59; i++) {
         UIImage *tempImgAnims4 = [UIImage imageNamed:[NSString stringWithFormat:@"anims1_%03d.png",i]];
@@ -421,7 +413,7 @@ NSLog(@"stop anims1");
     NSLog(@"scrolled: %f, %f", x, y);
     
     //scrollViewのコンテンツ位置が画面の中央に来たときに実行
-    if (x == (self.screenH/2)) {
+    if (x == (screenSizeRect.size.width/2)) {
         [self morphingUsualToBeltBeforeTouch];
         NSLog(@"called morphingUsualToBeltBeforeTouch");
     }

@@ -44,33 +44,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="EZF-hT-1xp">
-                    <connections>
-                        <action selector="touchIventUsualToBelt:" destination="2" id="lR2-eL-2rn"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="VZn-wQ-J2k">
-                    <connections>
-                        <action selector="beltTouchPointToUsualView:" destination="2" id="nhv-8h-jiI"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-534" y="-69"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="beltTouchPoint:"/>
-                <relationship kind="action" name="beltTouchPointToUsualView:"/>
-                <relationship kind="outlet" name="view" candidateClass="UIView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
