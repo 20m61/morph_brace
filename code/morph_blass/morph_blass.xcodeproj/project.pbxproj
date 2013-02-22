@@ -136,6 +136,9 @@
 		53B9ABDA16D6254D00F76718 /* braceToBeltSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B9ABD916D6254D00F76718 /* braceToBeltSegue.m */; };
 		53B9ABDD16D6276000F76718 /* beltToBraceSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B9ABDC16D6276000F76718 /* beltToBraceSegue.m */; };
 		53E23AB916D463AF0016C0AB /* braceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E23AB816D463AF0016C0AB /* braceViewController.m */; };
+		53E51ED116D73CA400D2DCA1 /* beltToBrace.wav in Resources */ = {isa = PBXBuildFile; fileRef = 53E51ECE16D73CA400D2DCA1 /* beltToBrace.wav */; };
+		53E51ED216D73CA400D2DCA1 /* braceToBelt02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 53E51ECF16D73CA400D2DCA1 /* braceToBelt02.wav */; };
+		53E51ED316D73CA400D2DCA1 /* braceToBelt01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 53E51ED016D73CA400D2DCA1 /* braceToBelt01.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +290,9 @@
 		53B9ABDC16D6276000F76718 /* beltToBraceSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = beltToBraceSegue.m; sourceTree = "<group>"; };
 		53E23AB716D463AF0016C0AB /* braceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = braceViewController.h; sourceTree = "<group>"; };
 		53E23AB816D463AF0016C0AB /* braceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = braceViewController.m; sourceTree = "<group>"; };
+		53E51ECE16D73CA400D2DCA1 /* beltToBrace.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beltToBrace.wav; sourceTree = "<group>"; };
+		53E51ECF16D73CA400D2DCA1 /* braceToBelt02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = braceToBelt02.wav; sourceTree = "<group>"; };
+		53E51ED016D73CA400D2DCA1 /* braceToBelt01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = braceToBelt01.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +324,7 @@
 		53438C9716C0F2AF006771DE = {
 			isa = PBXGroup;
 			children = (
+				53E51ED416D73CB400D2DCA1 /* sound */,
 				539BA3A716D4686F005F8639 /* image */,
 				53438CA916C0F2AF006771DE /* morph_blass */,
 				53438CD016C0F2B0006771DE /* morph_blassTests */,
@@ -352,14 +359,10 @@
 			isa = PBXGroup;
 			children = (
 				53438CB216C0F2AF006771DE /* AppDelegate.h */,
-				53B9ABDE16D6287400F76718 /* segue */,
 				53438CB316C0F2AF006771DE /* AppDelegate.m */,
-				53438CBB16C0F2AF006771DE /* MainStoryboard_iPhone.storyboard */,
-				53438CBE16C0F2AF006771DE /* MainStoryboard_iPad.storyboard */,
-				53E23AB716D463AF0016C0AB /* braceViewController.h */,
-				53E23AB816D463AF0016C0AB /* braceViewController.m */,
-				539BA3A416D46572005F8639 /* beltViewController.h */,
-				539BA3A516D46572005F8639 /* beltViewController.m */,
+				53E51ECD16D70F0C00D2DCA1 /* storyboard */,
+				53B9ABDE16D6287400F76718 /* segue */,
+				53E51ECC16D70C1600D2DCA1 /* viewController */,
 				53438CAA16C0F2AF006771DE /* Supporting Files */,
 			);
 			path = morph_blass;
@@ -563,6 +566,36 @@
 			name = segue;
 			sourceTree = "<group>";
 		};
+		53E51ECC16D70C1600D2DCA1 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				53E23AB716D463AF0016C0AB /* braceViewController.h */,
+				53E23AB816D463AF0016C0AB /* braceViewController.m */,
+				539BA3A416D46572005F8639 /* beltViewController.h */,
+				539BA3A516D46572005F8639 /* beltViewController.m */,
+			);
+			name = viewController;
+			sourceTree = "<group>";
+		};
+		53E51ECD16D70F0C00D2DCA1 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				53438CBB16C0F2AF006771DE /* MainStoryboard_iPhone.storyboard */,
+				53438CBE16C0F2AF006771DE /* MainStoryboard_iPad.storyboard */,
+			);
+			name = storyboard;
+			sourceTree = "<group>";
+		};
+		53E51ED416D73CB400D2DCA1 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				53E51ECE16D73CA400D2DCA1 /* beltToBrace.wav */,
+				53E51ECF16D73CA400D2DCA1 /* braceToBelt02.wav */,
+				53E51ED016D73CA400D2DCA1 /* braceToBelt01.wav */,
+			);
+			name = sound;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -747,6 +780,9 @@
 				539BA47E16D4689D005F8639 /* anims1_059.png in Resources */,
 				539BA48116D468B1005F8639 /* UIbrace.png in Resources */,
 				539BA48216D468B1005F8639 /* UIBelt.png in Resources */,
+				53E51ED116D73CA400D2DCA1 /* beltToBrace.wav in Resources */,
+				53E51ED216D73CA400D2DCA1 /* braceToBelt02.wav in Resources */,
+				53E51ED316D73CA400D2DCA1 /* braceToBelt01.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
