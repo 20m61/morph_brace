@@ -2,21 +2,17 @@
 //  braceToBeltSegue.m
 //  morph_blass
 //
-//  Created by ゆかいなおじさん.com on 13/02/21.
+//  Created by ゆかいなおじさん.com on 13/02/25.
 //  Copyright (c) 2013年 cnghwi. All rights reserved.
 //
 
 #import "braceToBeltSegue.h"
-#import "beltViewController.h"
 #import "braceViewController.h"
+#import "beltViewController.h"
 
 @implementation braceToBeltSegue
 
--(void)perform{
-    braceViewController *sourceViewController = (braceViewController *)self.sourceViewController;
-    beltViewController *destinationViewController = (beltViewController *)self.destinationViewController;
-    
-    [sourceViewController presentViewController:destinationViewController animated:YES completion:NULL];
+-(void)perform{   
+    [[self sourceViewController] presentModalViewController:[self destinationViewController] animated:NO];
 }
-
 @end

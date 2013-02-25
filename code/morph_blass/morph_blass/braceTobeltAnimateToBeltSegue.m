@@ -1,13 +1,13 @@
 //
-//  beltToBraceSegue.h
+//  braceTobeltAnimateToBeltSegue.m
 //  morph_blass
 //
 //  Created by ゆかいなおじさん.com on 13/02/25.
 //  Copyright (c) 2013年 cnghwi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "braceTobeltAnimateToBeltSegue.h"
 
-@interface beltToBraceSegue : UIStoryboardSegue
+@implementation braceTobeltAnimateToBeltSegue
 
 @end

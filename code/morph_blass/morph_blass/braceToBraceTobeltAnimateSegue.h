@@ -1,5 +1,5 @@
 //
-//  braceViewController.h
+//  braceToBraceTobeltAnimateSegue.h
 //  morph_blass
 //
 //  Created by ゆかいなおじさん.com on 13/02/25.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 
-@interface braceViewController : UIViewController<UIScrollViewDelegate>
+@interface braceToBraceTobeltAnimateSegue : UIStoryboardSegue
+
 @end
