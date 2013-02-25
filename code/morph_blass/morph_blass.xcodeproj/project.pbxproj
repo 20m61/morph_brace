@@ -31,9 +31,7 @@
 		5355B71A16DAF42600F12DE8 /* beltToBraceSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5355B71916DAF42600F12DE8 /* beltToBraceSegue.m */; };
 		5355B71C16DB64AB00F12DE8 /* braceToBelt03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5355B71B16DB64AB00F12DE8 /* braceToBelt03.wav */; };
 		5355B71E16DB687D00F12DE8 /* braceToBelt03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5355B71D16DB687D00F12DE8 /* braceToBelt03.mp3 */; };
-		5355B72116DB6AFC00F12DE8 /* braceToBeltAnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5355B72016DB6AFC00F12DE8 /* braceToBeltAnimateViewController.m */; };
-		5355B72716DB6BDA00F12DE8 /* braceToBraceTobeltAnimateSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5355B72616DB6BDA00F12DE8 /* braceToBraceTobeltAnimateSegue.m */; };
-		5355B72A16DB6BFC00F12DE8 /* braceTobeltAnimateToBeltSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5355B72916DB6BFC00F12DE8 /* braceTobeltAnimateToBeltSegue.m */; };
+		5355B72C16DB8EC500F12DE8 /* UIBrace.png in Resources */ = {isa = PBXBuildFile; fileRef = 5355B72B16DB8EC500F12DE8 /* UIBrace.png */; };
 		539BA41616D4689D005F8639 /* anims3_000.png in Resources */ = {isa = PBXBuildFile; fileRef = 539BA3AB16D4689D005F8639 /* anims3_000.png */; };
 		539BA41716D4689D005F8639 /* anims3_001.png in Resources */ = {isa = PBXBuildFile; fileRef = 539BA3AC16D4689D005F8639 /* anims3_001.png */; };
 		539BA41816D4689D005F8639 /* anims3_002.png in Resources */ = {isa = PBXBuildFile; fileRef = 539BA3AD16D4689D005F8639 /* anims3_002.png */; };
@@ -139,7 +137,6 @@
 		539BA47C16D4689D005F8639 /* anims1_057.png in Resources */ = {isa = PBXBuildFile; fileRef = 539BA41316D4689D005F8639 /* anims1_057.png */; };
 		539BA47D16D4689D005F8639 /* anims1_058.png in Resources */ = {isa = PBXBuildFile; fileRef = 539BA41416D4689D005F8639 /* anims1_058.png */; };
 		539BA47E16D4689D005F8639 /* anims1_059.png in Resources */ = {isa = PBXBuildFile; fileRef = 539BA41516D4689D005F8639 /* anims1_059.png */; };
-		539BA48116D468B1005F8639 /* UIbrace.png in Resources */ = {isa = PBXBuildFile; fileRef = 539BA47F16D468B1005F8639 /* UIbrace.png */; };
 		539BA48216D468B1005F8639 /* UIBelt.png in Resources */ = {isa = PBXBuildFile; fileRef = 539BA48016D468B1005F8639 /* UIBelt.png */; };
 		53E51ED116D73CA400D2DCA1 /* beltToBrace.wav in Resources */ = {isa = PBXBuildFile; fileRef = 53E51ECE16D73CA400D2DCA1 /* beltToBrace.wav */; };
 		53E51ED216D73CA400D2DCA1 /* braceToBelt02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 53E51ECF16D73CA400D2DCA1 /* braceToBelt02.wav */; };
@@ -190,12 +187,7 @@
 		5355B71916DAF42600F12DE8 /* beltToBraceSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = beltToBraceSegue.m; sourceTree = "<group>"; };
 		5355B71B16DB64AB00F12DE8 /* braceToBelt03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = braceToBelt03.wav; sourceTree = "<group>"; };
 		5355B71D16DB687D00F12DE8 /* braceToBelt03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = braceToBelt03.mp3; sourceTree = "<group>"; };
-		5355B71F16DB6AFC00F12DE8 /* braceToBeltAnimateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = braceToBeltAnimateViewController.h; sourceTree = "<group>"; };
-		5355B72016DB6AFC00F12DE8 /* braceToBeltAnimateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = braceToBeltAnimateViewController.m; sourceTree = "<group>"; };
-		5355B72516DB6BDA00F12DE8 /* braceToBraceTobeltAnimateSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = braceToBraceTobeltAnimateSegue.h; sourceTree = "<group>"; };
-		5355B72616DB6BDA00F12DE8 /* braceToBraceTobeltAnimateSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = braceToBraceTobeltAnimateSegue.m; sourceTree = "<group>"; };
-		5355B72816DB6BFC00F12DE8 /* braceTobeltAnimateToBeltSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = braceTobeltAnimateToBeltSegue.h; sourceTree = "<group>"; };
-		5355B72916DB6BFC00F12DE8 /* braceTobeltAnimateToBeltSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = braceTobeltAnimateToBeltSegue.m; sourceTree = "<group>"; };
+		5355B72B16DB8EC500F12DE8 /* UIBrace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBrace.png; sourceTree = "<group>"; };
 		539BA3AB16D4689D005F8639 /* anims3_000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anims3_000.png; sourceTree = "<group>"; };
 		539BA3AC16D4689D005F8639 /* anims3_001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anims3_001.png; sourceTree = "<group>"; };
 		539BA3AD16D4689D005F8639 /* anims3_002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anims3_002.png; sourceTree = "<group>"; };
@@ -301,7 +293,6 @@
 		539BA41316D4689D005F8639 /* anims1_057.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anims1_057.png; sourceTree = "<group>"; };
 		539BA41416D4689D005F8639 /* anims1_058.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anims1_058.png; sourceTree = "<group>"; };
 		539BA41516D4689D005F8639 /* anims1_059.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anims1_059.png; sourceTree = "<group>"; };
-		539BA47F16D468B1005F8639 /* UIbrace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIbrace.png; sourceTree = "<group>"; };
 		539BA48016D468B1005F8639 /* UIBelt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBelt.png; sourceTree = "<group>"; };
 		53E51ECE16D73CA400D2DCA1 /* beltToBrace.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beltToBrace.wav; sourceTree = "<group>"; };
 		53E51ECF16D73CA400D2DCA1 /* braceToBelt02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = braceToBelt02.wav; sourceTree = "<group>"; };
@@ -422,10 +413,6 @@
 				5355B71516DAF40800F12DE8 /* braceToBeltSegue.h */,
 				5355B71616DAF40800F12DE8 /* braceToBeltSegue.m */,
 				5355B70D16DAF22000F12DE8 /* beltToWeapon */,
-				5355B72516DB6BDA00F12DE8 /* braceToBraceTobeltAnimateSegue.h */,
-				5355B72616DB6BDA00F12DE8 /* braceToBraceTobeltAnimateSegue.m */,
-				5355B72816DB6BFC00F12DE8 /* braceTobeltAnimateToBeltSegue.h */,
-				5355B72916DB6BFC00F12DE8 /* braceTobeltAnimateToBeltSegue.m */,
 			);
 			name = segue;
 			sourceTree = "<group>";
@@ -438,8 +425,6 @@
 				5355B71116DAF32100F12DE8 /* beltViewController.h */,
 				5355B71216DAF32100F12DE8 /* beltViewController.m */,
 				5355B71416DAF32F00F12DE8 /* weaponVIewController */,
-				5355B71F16DB6AFC00F12DE8 /* braceToBeltAnimateViewController.h */,
-				5355B72016DB6AFC00F12DE8 /* braceToBeltAnimateViewController.m */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
@@ -480,7 +465,7 @@
 		539BA3A916D4688F005F8639 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				539BA47F16D468B1005F8639 /* UIbrace.png */,
+				5355B72B16DB8EC500F12DE8 /* UIBrace.png */,
 				539BA48016D468B1005F8639 /* UIBelt.png */,
 			);
 			name = UI;
@@ -815,13 +800,13 @@
 				539BA47C16D4689D005F8639 /* anims1_057.png in Resources */,
 				539BA47D16D4689D005F8639 /* anims1_058.png in Resources */,
 				539BA47E16D4689D005F8639 /* anims1_059.png in Resources */,
-				539BA48116D468B1005F8639 /* UIbrace.png in Resources */,
-				539BA48216D468B1005F8639 /* UIBelt.png in Resources */,
 				53E51ED116D73CA400D2DCA1 /* beltToBrace.wav in Resources */,
 				53E51ED216D73CA400D2DCA1 /* braceToBelt02.wav in Resources */,
 				53E51ED316D73CA400D2DCA1 /* braceToBelt01.wav in Resources */,
 				5355B71C16DB64AB00F12DE8 /* braceToBelt03.wav in Resources */,
 				5355B71E16DB687D00F12DE8 /* braceToBelt03.mp3 in Resources */,
+				539BA48216D468B1005F8639 /* UIBelt.png in Resources */,
+				5355B72C16DB8EC500F12DE8 /* UIBrace.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,9 +847,6 @@
 				5355B71316DAF32100F12DE8 /* beltViewController.m in Sources */,
 				5355B71716DAF40800F12DE8 /* braceToBeltSegue.m in Sources */,
 				5355B71A16DAF42600F12DE8 /* beltToBraceSegue.m in Sources */,
-				5355B72116DB6AFC00F12DE8 /* braceToBeltAnimateViewController.m in Sources */,
-				5355B72716DB6BDA00F12DE8 /* braceToBraceTobeltAnimateSegue.m in Sources */,
-				5355B72A16DB6BFC00F12DE8 /* braceTobeltAnimateToBeltSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,17 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface beltViewController (){
+    //braceToBelt02(ループ再生)
+    UIImage *braceToBeltImage02;
     AVAudioPlayer *braceToBeltSound02;
+    //braceToBelt03(一度のみ再生)
+    UIImage *braceToBeltImage03;
     AVAudioPlayer *braceToBeltSound03;
+    //beltToBrace(一度のみ再生)
+    UIImage *beltToBraceImage;
     AVAudioPlayer *beltToBraceSound;
 }
-@property UIImageView *braceImageView;
+@property UIImageView *beltImageView;
 
 @end
 
@@ -29,18 +35,42 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
     
     [self initBraceImageView];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    switch (self.segueDiscrimination) {
+        //braceToBelt
+        case 1:{
+            NSMutableArray *braceToBeltImage02Array = [[NSMutableArray alloc]init];
+            for (int i = 0; i < 14; i++) {
+                UIImage *braceToBeltImage02temp = [UIImage imageNamed:[NSString stringWithFormat:@"anims2_%03d.png",i]];
+                [braceToBeltImage02Array addObject:braceToBeltImage02temp];
+            }
+            self.beltImageView.animationImages = braceToBeltImage02Array;
+            //設定
+            self.beltImageView.animationDuration = 0;
+            self.beltImageView.animationRepeatCount = 0;
+            [self.beltImageView startAnimating];
     
-    self.toBraceSegueButton.alpha = .0f;
-    
-    [self initSounds];
+            NSString *braceToBeltSound02Path = [[NSBundle mainBundle] pathForResource:@"braceToBelt02" ofType:@"wav"];
+            NSURL *braceToBeltSound02URL = [NSURL fileURLWithPath:braceToBeltSound02Path];
+            braceToBeltSound02 = [[AVAudioPlayer alloc] initWithContentsOfURL:braceToBeltSound02URL error:nil];
+            braceToBeltSound02.numberOfLoops = -1;
+            [braceToBeltSound02 play];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 
 //braceImageVIewを初期化
 - (void)initBraceImageView{
-    self.braceImageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.height, self.view.bounds.size.width+20)];
-    self.braceImageView.image = [UIImage imageNamed:@"UIbelt.png"];
-    [self.view addSubview:self.braceImageView];
+    self.beltImageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.height, self.view.bounds.size.width+20)];
+    self.beltImageView.image = [UIImage imageNamed:@"UIBelt.png"];
+    [self.view addSubview:self.beltImageView];
 }
 
 //braceToBeltSegueから呼ぶアニメーション
@@ -64,9 +94,10 @@
     beltToBraceSound = [[AVAudioPlayer alloc] initWithContentsOfURL:beltToBraceSoundURL error:nil];
 }
 
-
+//ベルトのボタンを押したときに実行
 - (IBAction)beltTouchDown:(id)sender {
     [braceToBeltSound02 stop];
+    [self.beltImageView stopAnimating];
     [braceToBeltSound03 play];
 
 }

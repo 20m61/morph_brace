@@ -117,22 +117,6 @@
             <point key="canvasLocation" x="-3248" y="-283"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="beltViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/beltViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="beltTouchDown:"/>
-                <relationship kind="action" name="beltTouchUpOutside:"/>
-                <relationship kind="outlet" name="toBraceSegueButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="braceViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/braceViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface beltViewController : UIViewController
+@property int segueDiscrimination;
 @property (strong, nonatomic) IBOutlet UIButton *toBraceSegueButton;
 - (IBAction)beltTouchDown:(id)sender;
 - (IBAction)beltTouchUpOutside:(id)sender;

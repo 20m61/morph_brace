@@ -8,6 +8,7 @@
 
 #import "braceViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "beltViewController.h"
 
 @interface braceViewController (){
     AVAudioPlayer *braceToBeleSound01;
@@ -43,14 +44,23 @@
     }
     else if(interfaceOrientation == UIInterfaceOrientationLandscapeLeft){
         NSLog(@"縦(ホームボタン右)");
-        [braceToBeltSound02 play];
-        braceToBeltSound02.numberOfLoops = -1;
+        if (self.braceScrollView.contentOffset.x > self.view.bounds.size.height/2) {
+            //braceToBeleViewを実行
+            [self toBeltView];        }
     }
     else if(interfaceOrientation == UIInterfaceOrientationLandscapeRight){
         NSLog(@"縦(ホームボタン左)");
-        [braceToBeltSound02 play];
-        braceToBeltSound02.numberOfLoops = -1;
+        if (self.braceScrollView.contentOffset.x > self.view.bounds.size.height/2) {
+            //braceToBeleViewを実行
+            [self toBeltView];
     }
+    }
+}
+
+//beltViewへ
+-(void)toBeltView{
+    //braceToBeltSegueをcall
+    [self performSegueWithIdentifier:@"braceToBeltSegue" sender:self];
 }
 
 //braceScrollVIewのインスタンスを生成してviewへ追加
@@ -98,7 +108,6 @@
     NSURL *braceToBeltSound02URL = [NSURL fileURLWithPath:braceToBeltSound02Path];
     braceToBeltSound02 = [[AVAudioPlayer alloc] initWithContentsOfURL:braceToBeltSound02URL error:nil];
     
-    
     NSString *braceToBeltSound03Path = [[NSBundle mainBundle] pathForResource:@"braceToBelt03" ofType:@"mp3"];
     NSURL *braceToBeltSound03URL = [NSURL fileURLWithPath:braceToBeltSound03Path];
     braceToBeltSound03 = [[AVAudioPlayer alloc] initWithContentsOfURL:braceToBeltSound03URL error:nil];
@@ -108,15 +117,20 @@
     beltToBraceSound = [[AVAudioPlayer alloc] initWithContentsOfURL:beltToBraceSoundURL error:nil];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //Segueの特定
+    if ( [[segue identifier] isEqualToString:@"braceToBeltSegue"] ) {
+        beltViewController *nextViewController = [segue destinationViewController];
+        //ここで遷移先ビューのクラスの変数receiveStringに値を渡している
+        nextViewController.segueDiscrimination = 1;
+    }
+}
+
 //スクロールされきったときに実行
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (self.braceScrollView.contentOffset.x > self.view.bounds.size.height/2) {
-        
         //braceToBeleSound01を実行
         [braceToBeleSound01 play];
-        
-        //braceToBeltSegueをcall
-        [self performSegueWithIdentifier:@"braceToBeltSegue" sender:self];
     }
 }
 
