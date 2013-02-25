@@ -19,12 +19,18 @@
 	// Do any additional setup after loading the view.
     
     //braceScrollViewの位置・サイズを設定
-    [self.braceScrollView setFrame:CGRectMake(0, 0, 300, 480)];
-    [self.braceScrollView setContentSize:CGSizeMake(720, 300)];
-    //スクロールを有効に
+    [self.braceScrollView setFrame:CGRectMake(self.view.bounds.origin.y, self.view.bounds.origin.x, self.view.bounds.size.height, 300)];
+    //braceScrollImageViewの位置・サイズを設定
+    [self.braceScrollViewImage setFrame:CGRectMake(self.view.bounds.origin.y, self.view.bounds.origin.x, self.view.bounds.size.height, 300)];
+    //braceScrollViewのコンテンツサイズを設定
+    [self.braceScrollView setContentSize:CGSizeMake(1000,300)];
+    //braceScrollViewのスクロールを有効に
     [self.braceScrollView setScrollEnabled:YES];
+        
     //デリゲート
     self.braceScrollView.delegate = self;
+    
+    NSLog(@"%@", NSStringFromCGRect([[UIScreen mainScreen] bounds]));
 }
 
 -(void)viewWillAppear:(BOOL)animated{

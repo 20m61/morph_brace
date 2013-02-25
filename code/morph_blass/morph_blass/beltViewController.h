@@ -10,10 +10,8 @@
 
 @interface beltViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *beltMainView;
+@property (strong, nonatomic) IBOutlet UIImageView *beltViewMainImageView;
 - (IBAction)toBeltButton:(id)sender;
 - (IBAction)toBraceButton:(id)sender;
-@property (strong, nonatomic) IBOutlet UIImageView *braceToBeltAnimationView;
-@property (strong, nonatomic) IBOutlet UIImageView *braceToBeltAnimationView02;
-@property (strong, nonatomic) IBOutlet UIImageView *beltToBraceAnimationView;
 
 @end
