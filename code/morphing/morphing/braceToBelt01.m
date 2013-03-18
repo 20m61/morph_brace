@@ -7,7 +7,14 @@
 //
 
 #import "braceToBelt01.h"
+#import "beltViewController.h"
+#import "braceToBeltViewController.h"
 
 @implementation braceToBelt01
+
+- (void)perform{
+    [[self sourceViewController] presentModalViewController:[self  destinationViewController] animated:NO];
+}
+
 
 @end

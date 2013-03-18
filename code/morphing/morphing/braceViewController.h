@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface braceViewController : UIViewController
-
+@interface braceViewController : UIViewController<UIScrollViewDelegate>
 @end

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface beltToBraceViewController : UIViewController
+-(void)setAnimates;
+-(void)setSounds;
+-(void)callSegue;
 
 @end

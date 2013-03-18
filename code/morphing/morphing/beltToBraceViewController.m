@@ -3,13 +3,15 @@
 //  morphing
 //
 //  Created by ゆかいなおじさん.com on 13/03/07.
-//  Copyright (c) 2013年 cnghwi. All rights reserved.
+//  Copyright (c) 2013年 . All rights reserved.
 //
 
 #import "beltToBraceViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface beltToBraceViewController ()
-
+@interface beltToBraceViewController (){
+}
+@property UIImageView *imageView;
 @end
 
 @implementation beltToBraceViewController
